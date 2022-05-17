@@ -4,7 +4,7 @@
 &nbsp; 
  [<ins>__[Project page]__</ins>](https://seharanul17.github.io/RevIN/)
 ***
-##Introduction
+## Introduction
 ***
 This is the official PyTorch implementation of the paper [Reversible Instance Normalization for Accurate Time-Series Forecasting against Distribution Shift](https://openreview.net/forum?id=cGDAkQo1C0p).
 

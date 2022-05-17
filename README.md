@@ -3,21 +3,21 @@
 [<ins>__[Paper]__</ins>](https://openreview.net/pdf?id=cGDAkQo1C0p) &nbsp; 
 &nbsp; 
  [<ins>__[Project page]__</ins>](https://seharanul17.github.io/RevIN/)
-***
+
 ## Introduction
-***
+
 This is the official PyTorch implementation of the paper [Reversible Instance Normalization for Accurate Time-Series Forecasting against Distribution Shift](https://openreview.net/forum?id=cGDAkQo1C0p).
 
 Statistical properties such as mean and variance often change over time in time series, i.e., time-series data suffer from a distribution shift problem. This change in temporal distribution is one of the main challenges that prevent accurate time-series forecasting. To address this issue, we propose a simple yet effective normalization method called reversible instance normalization (RevIN), a generally-applicable normalization-and-denormalization method with learnable affine transformation. The proposed method is symmetrically structured to remove and restore the statistical information of a time-series instance, leading to significant performance improvements in time-series forecasting, as shown in Fig. 1. We demonstrate the effectiveness of RevIN via extensive quantitative and qualitative analyses on various real-world datasets, addressing the distribution shift problem.
 
 
 ## Environment
-***
+
 The code was developed using python 3.8 on Ubuntu 18.04. The experiments were performed on a single NVIDIA TITAN RTX or NVIDIA TITAN Xp.
 
 
 ## Quick start
-***
+
 ### Installation
 1. Install PyTorch >= v.1.8.0 following the [official instruction](https://pytorch.org/). 
    - tested with PyTorch v.1.8.0 and PyTorch v.1.11.0.
@@ -47,7 +47,7 @@ RevIN can be added in any arbitrarily chosen layers of a model.
 
 
 ## Citation
-***
+
 If you find this work or code is helpful in your research, please cite:
 ```
 @inproceedings{kim2021reversible,

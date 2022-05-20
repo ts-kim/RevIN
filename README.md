@@ -35,7 +35,7 @@ For example,
 - x_in: (batch_size, sequence_length, num_features)
 - x_out: (batch_size, prediction_length, num_features)
 
-RevIN can be added in any arbitrarily chosen layers of a model.
+RevIN can be added in any arbitrarily chosen layers of a model as follows:
 ```
 >>> from RevIN import RevIN
 >>> revin_layer = RevIN(num_features)

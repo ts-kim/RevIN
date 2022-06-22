@@ -8,7 +8,7 @@ class RevIN(nn.Module):
         :param eps: a value added for numerical stability
         :param affine: if True, RevIN has learnable affine parameters
         """
-        super().__init__()
+        super(RevIN, self).__init__()
         self.num_features = num_features
         self.eps = eps
         self.affine = affine

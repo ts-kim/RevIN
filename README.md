@@ -27,7 +27,6 @@ The code was developed using python 3.8 on Ubuntu 18.04. The experiments were pe
     ```
 
 ### Usage
-***
 RevIN calculates the mean and standard deviation of each feature separately for each sequence in a mini-batch.
 To be reversible, the input and output tensors should have the same number of features.
 The input tensors should be provided as *(..., feature)*.

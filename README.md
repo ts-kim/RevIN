@@ -1,4 +1,4 @@
-# RevIN - Official PyTorch Implementation
+# RevIN (ICLR 2022) - Official PyTorch Implementation
 
 [<ins>__[Paper]__</ins>](https://openreview.net/pdf?id=cGDAkQo1C0p) &nbsp; 
 &nbsp; 
@@ -27,7 +27,6 @@ The code was developed using python 3.8 on Ubuntu 18.04. The experiments were pe
     ```
 
 ### Usage
-***
 RevIN calculates the mean and standard deviation of each feature separately for each sequence in a mini-batch.
 To be reversible, the input and output tensors should have the same number of features.
 The input tensors should be provided as *(..., feature)*.
@@ -44,7 +43,10 @@ RevIN can be added in any arbitrarily chosen layers of a model as follows:
 >>> x_out = revin_layer(x_out, 'denorm')
 ```
 
-
+### Baselines
+We updated the training and evaluation codes for [Informer](https://github.com/zhouhaoyi/Informer2020).
+Please see the `Informer` forder.
+The codes for other baselines will also be made available shortly.
 
 ## Citation
 

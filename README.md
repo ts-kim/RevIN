@@ -45,7 +45,7 @@ RevIN can be added in any arbitrarily chosen layers of a model as follows:
 
 ### Baselines
 We updated the training and evaluation codes for [Informer](https://github.com/zhouhaoyi/Informer2020).
-Please see the 'Informer' forder.
+Please see the `Informer` forder.
 The codes for other baselines will also be made available shortly.
 
 ## Citation

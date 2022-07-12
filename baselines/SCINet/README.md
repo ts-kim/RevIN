@@ -1,4 +1,4 @@
-# RevIN + SCINet"
+# RevIN + SCINet
 Pytorch implementation of "Reversible Instance Normalization for Accurate Time-Series Forecasting against Distribution Shift"
 
 This code is based on [SCINet](https://github.com/cure-lab/SCINet).

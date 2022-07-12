@@ -7,6 +7,11 @@ import torch
 import argparse
 import numpy as np
 
+import sys
+sys.path.append('../../')
+from RevIN import RevIN
+
+
 class Splitting(nn.Module):
     def __init__(self):
         super(Splitting, self).__init__()
@@ -296,8 +301,7 @@ class SCINet(nn.Module):
 
         if self.args.ours:
             #b, s, f means b, f
-            self.affine_weight = nn.Parameter(torch.ones(1, 1, input_dim))
-            self.affine_bias = nn.Parameter(torch.zeros(1, 1, input_dim))
+            self.revin = RevIN(input_dim)
 
 
 
@@ -316,18 +320,11 @@ class SCINet(nn.Module):
     
         return signal
 
-    def forward(self, x, return_before_reverse=False):
+    def forward(self, x):
         assert self.input_len % (np.power(2, self.num_levels)) == 0 # evenly divided the input length into two parts. (e.g., 32 -> 16 -> 8 -> 4 for 3 levels)
 
         if self.args.ours:
-            means = x.mean(1, keepdim=True).detach()
-            #mean
-            x = x - means
-            #var
-            stdev = torch.sqrt(torch.var(x, dim=1, keepdim=True, unbiased=False) + 1e-5)
-            x /= stdev
-            # affine
-            x = x * self.affine_weight + self.affine_bias
+            x = self.revin(x, 'norm')
 
         if self.pe:
             pe = self.get_position_encoding(x)
@@ -346,15 +343,8 @@ class SCINet(nn.Module):
 
 
             if self.args.ours:
-                if return_before_reverse:
-                    before_reverse = x.detach().data.cpu()
-                x = x - self.affine_bias
-                x = x / (self.affine_weight + 1e-10)
-                x = x * stdev
-                x = x + means
+                x = self.revin(x,'denorm')
 
-                if return_before_reverse:
-                    return x, before_reverse
 
             return x #maybe forecast
 
@@ -372,20 +362,8 @@ class SCINet(nn.Module):
             x = self.projection2(x)
 
             if self.args.ours:
-                MidOutPut = MidOutPut - self.affine_bias
-                MidOutPut = MidOutPut / (self.affine_weight + 1e-10)
-                MidOutPut = MidOutPut * stdev
-                MidOutPut = MidOutPut + means
-
-            if self.args.ours:
-                if return_before_reverse:
-                    before_reverse = x.detach().data.cpu()
-                x = x - self.affine_bias
-                x = x / (self.affine_weight + 1e-10)
-                x = x * stdev
-                x = x + means
-                if return_before_reverse:
-                    return x, before_reverse
+                MidOutPut = self.revin(MidOutPut, 'denorm')
+                x = self.revin(x, 'denorm')
 
             return x, MidOutPut
 

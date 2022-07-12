@@ -13,7 +13,9 @@ Statistical properties such as mean and variance often change over time in time 
 
 ## Environment
 
-The code was developed using python 3.8 on Ubuntu 18.04. The experiments were performed on a single NVIDIA TITAN RTX or NVIDIA TITAN Xp.
+The code was developed using python 3.8 on Ubuntu 18.04. 
+
+The experiments were performed on a single NVIDIA TITAN RTX or NVIDIA TITAN Xp.
 
 
 ## Quick start
@@ -28,6 +30,8 @@ The code was developed using python 3.8 on Ubuntu 18.04. The experiments were pe
 
 ### Usage
 RevIN calculates the mean and standard deviation of each feature separately for each sequence in a mini-batch.
+
+
 To be reversible, the input and output tensors should have the same number of features.
 The input tensors should be provided as *(..., feature)*.
 For example,
@@ -45,6 +49,8 @@ RevIN can be added in any arbitrarily chosen layers of a model as follows:
 
 ### Baselines
 We updated the training and evaluation codes for the baselines, [Informer](https://github.com/zhouhaoyi/Informer2020) and [SCINet](https://github.com/cure-lab/SCINet).
+
+
 Please see the [`baselines`](https://github.com/ts-kim/RevIN/tree/master/baselines) forder.
 - [`Informer`](https://github.com/ts-kim/RevIN/tree/master/baselines/Informer2020)
 - [`SCINet`](https://github.com/ts-kim/RevIN/tree/master/baselines/SCINet)

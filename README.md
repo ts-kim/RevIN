@@ -51,7 +51,7 @@ RevIN can be added in any arbitrarily chosen layers of a model as follows:
 We updated the training and evaluation codes for the baselines, [Informer](https://github.com/zhouhaoyi/Informer2020) and [SCINet](https://github.com/cure-lab/SCINet).
 
 
-Please see the [`baselines`](https://github.com/ts-kim/RevIN/tree/master/baselines) forder.
+Please go to the [`baselines`](https://github.com/ts-kim/RevIN/tree/master/baselines) forder or the link below.
 - [`Informer`](https://github.com/ts-kim/RevIN/tree/master/baselines/Informer2020)
 - [`SCINet`](https://github.com/ts-kim/RevIN/tree/master/baselines/SCINet)
 

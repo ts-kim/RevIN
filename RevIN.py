@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 class RevIN(nn.Module):
     def __init__(self, num_features: int, eps=1e-5, affine=True):
         """
@@ -26,8 +26,8 @@ class RevIN(nn.Module):
 
     def _init_params(self):
         # initialize RevIN params: (C,)
-        self.affine_weight = nn.Parameter(torch.ones(self.num_features))
-        self.affine_bias = nn.Parameter(torch.zeros(self.num_features))
+        self.affine_weight = nn.Parameter(torch.ones(self.num_features)).to(device)
+        self.affine_bias = nn.Parameter(torch.zeros(self.num_features)).to(device)
 
     def _get_statistics(self, x):
         dim2reduce = tuple(range(1, x.ndim-1))
@@ -39,7 +39,9 @@ class RevIN(nn.Module):
         x = x / self.stdev
         if self.affine:
             x = x * self.affine_weight
+            x = x.to(device)
             x = x + self.affine_bias
+            x = x.to(device)
         return x
 
     def _denormalize(self, x):

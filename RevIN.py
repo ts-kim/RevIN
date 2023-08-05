@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
-device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+# For Single-GPU users, if not, please not use it.
+# device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu") 
 class RevIN(nn.Module):
     def __init__(self, num_features: int, eps=1e-5, affine=True):
         """

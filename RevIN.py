@@ -44,9 +44,10 @@ class RevIN(nn.Module):
         x = x / self.stdev
         if self.affine:
             x = x * self.affine_weight
-            x = x.to(device)
+            # For Single-GPU users, if not, please not use it.
+            # x = x.to(device)
             x = x + self.affine_bias
-            x = x.to(device)
+            #x = x.to(device)
         return x
 
     def _denormalize(self, x):

@@ -27,8 +27,12 @@ class RevIN(nn.Module):
 
     def _init_params(self):
         # initialize RevIN params: (C,)
-        self.affine_weight = nn.Parameter(torch.ones(self.num_features)).to(device)
-        self.affine_bias = nn.Parameter(torch.zeros(self.num_features)).to(device)
+        #Default:CPU or Multi-GPUs
+        self.affine_weight = nn.Parameter(torch.ones(self.num_features))
+        self.affine_bias = nn.Parameter(torch.zeros(self.num_features))
+        #Single specific GPU setting
+        #self.affine_weight = nn.Parameter(torch.ones(self.num_features)).to(device)
+        #self.affine_bias = nn.Parameter(torch.zeros(self.num_features)).to(device)
 
     def _get_statistics(self, x):
         dim2reduce = tuple(range(1, x.ndim-1))

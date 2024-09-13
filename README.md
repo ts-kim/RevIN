@@ -5,7 +5,7 @@
  [<ins>__[Project page]__</ins>](https://seharanul17.github.io/RevIN/)
 
 <p align="center">
- <img src="fig1.gif" width=70%>
+ <img src="fig1.gif" width=100%>
 <img src="qual.png" width=70%>
 </p>
 
